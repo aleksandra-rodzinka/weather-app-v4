@@ -1,5 +1,22 @@
+:root {
+  --dark-background-color: black;
+  --dark-text-color: white;
+
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
 body {
-  background-color: antiquewhite;
+  --background-color: white;
+  --text-color: black;
+
+  color: var(--text-color);
+  background: var(--background-color);
+}
+
+body.theme-dark {
+  --background-color: var(--dark-background-color);
+  --text-color: var(--dark-text-color);
 }
 
 ul {
@@ -12,7 +29,6 @@ li {
   margin: 0;
   padding: 0;
 
-  color: rgb(0, 0, 0);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -22,6 +38,12 @@ li:first-letter {
   text-transform: capitalize;
 }
 
+.select {
+  position: absolute;
+  right: 555px;
+  padding-top: 2px;
+}
+
 .weather-temperature img {
   margin-right: 5px;
   height: 64px;
@@ -29,7 +51,6 @@ li:first-letter {
 }
 
 .weather-temperature strong {
-  color: rgb(0, 0, 0);
   font-size: 55px;
   line-height: 1;
   font-weight: 400;
@@ -63,4 +84,14 @@ li:first-letter {
 
 .weather-temperature .active:hover {
   text-decoration: none;
+}
+
+.select {
+  color: black;
+  right: 555px;
+  opacity: 0.5;
+}
+
+.opacity {
+  opacity: 0.5;
 }
