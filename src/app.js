@@ -30,7 +30,11 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.temperature.current;
+
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+
   cityElement.innerHTML = response.data.city;
   conditionsElement.innerHTML = response.data.condition.description;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -51,7 +55,32 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("Krakow");
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(FahrenheitTemperature);
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+search("Varazdin");

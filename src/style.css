@@ -51,3 +51,16 @@ li:first-letter {
   border: 2px solid #4f76a9;
   border-radius: 5px;
 }
+
+.space {
+  padding-bottom: 5px;
+}
+
+.weather-temperature .active {
+  color: black;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
