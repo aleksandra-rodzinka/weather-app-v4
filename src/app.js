@@ -77,10 +77,24 @@ function showCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+function showCurrentLocation(position) {
+  let ApiKey = "f0c81td68bc7aeb6ae5b7113o45714af";
+  let ApiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${ApiKey}&units=metric`;
+  axios.get(ApiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showCurrentLocation);
+}
+
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+let locateButton = document.querySelector("#locate-button");
+locateButton.addEventListener("click", getCurrentLocation);
 
 search("Varazdin");
