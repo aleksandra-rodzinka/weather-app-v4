@@ -39,17 +39,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
 }
 
-function search(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-  console.log(cityInputElement);
+function search(city) {
+  let ApiKey = "f0c81td68bc7aeb6ae5b7113o45714af";
+  let ApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${ApiKey}&units=metric`;
+  axios.get(ApiUrl).then(displayTemperature);
 }
 
-let ApiKey = "f0c81td68bc7aeb6ae5b7113o45714af";
-let city = "Oslo";
-let ApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${ApiKey}&units=metric`;
-
-axios.get(ApiUrl).then(displayTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
+
+search("Krakow");
