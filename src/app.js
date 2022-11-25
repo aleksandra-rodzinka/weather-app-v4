@@ -35,7 +35,7 @@ function displayTemperature(response) {
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
 
-  cityElement.innerHTML = response.data.city;
+  cityElement.innerHTML = `${response.data.city}, ${response.data.country}`;
   conditionsElement.innerHTML = response.data.condition.description;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   humidityElement.innerHTML = response.data.temperature.humidity;
