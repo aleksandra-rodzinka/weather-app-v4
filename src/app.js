@@ -67,6 +67,14 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   dateElement.innerHTML = formatDate(response.data.time * 1000);
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
+
+  getForecast();
+}
+
+function getForecast() {
+  let city = document.querySelector("#city-input");
+  let ApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=f0c81td68bc7aeb6ae5b7113o45714af&units=metric`;
+  console.log(ApiUrl);
 }
 
 function search(city) {
