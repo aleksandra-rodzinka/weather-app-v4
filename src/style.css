@@ -7,7 +7,7 @@
 }
 
 body {
-  --background-color: white;
+  --background-color: rgba(238, 238, 238, 0.458);
   --text-color: black;
 
   color: var(--text-color);
@@ -36,6 +36,24 @@ li {
 
 li:first-letter {
   text-transform: capitalize;
+}
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(143, 118, 118);
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 .select {
@@ -69,7 +87,7 @@ li:first-letter {
 
 .weatherapp {
   padding: 20px;
-  border: 2px solid #4f76a9;
+  border: 2px solid pink;
   border-radius: 5px;
 }
 

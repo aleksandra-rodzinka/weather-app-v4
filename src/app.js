@@ -110,15 +110,6 @@ let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(FahrenheitTemperature);
-}
-
 function showCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -149,14 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemperature);
-
 let locateButton = document.querySelector("#locate-button");
 locateButton.addEventListener("click", getCurrentLocation);
 
-search("Varazdin");
-document.querySelector("#city-input").value = "Varazdin";
+search("Nielepkowice");
+document.querySelector("#city-input").value = "Nielepkowice";
